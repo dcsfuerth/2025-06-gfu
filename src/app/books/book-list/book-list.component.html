@@ -1,26 +1,36 @@
 <p>book-list works!</p>
+<p>
+  <button (click)="toggleCover()">Cover {{coverIsVisible ? 'aus' : 'ein'}}blenden</button>
+</p>
 
-<p *ngIf="books?.length ===0">
+@if (books.length ===0) {
+<p>
   Leider gibt es noch keine Bücher.
   Bitte warten Sie, bis die Bücher geladen sind.
 </p>
+}
 
-<p *ngIf="books && books.length > 0">
+@if (books.length > 0) {
+<p>
   Hier sind die Bücher:
-
+</p>
 <table>
   <tr>
     <td class="zelle">ISBN</td>
     <td class="zelle">Titel</td>
     <td class="zelle">Rating</td>
     <td class="zelle">Preis</td>
-    <td class="zelle"></td>
+    <td class="zelle">Cover</td>
   </tr>
-  <tr *ngFor="let book of books; index as i;trackBy: trackByIsbn">
+  @for (book of books; track book; let i = $index) {
+  <tr style="height: 50px">
     <td class="zelle">{{i+1}}: {{book.isbn}}</td>
     <td class="zelle">{{book.title}}</td>
     <td class="zelle">{{book.rating}}</td>
-    <td class="zelle">{{book.price}}</td>
-    <td class="zelle"></td>
+    <td class="zelle" [ngStyle]="{'background-color' : book.price < 10 ? 'green' : 'red' }">
+      {{book.price}}</td>
+    <td class="zelle"><img *ngIf="coverIsVisible" [src]="book.coverUrl" [style.width.px]="imageWidth"></td>
   </tr>
+  }
 </table>
+}
