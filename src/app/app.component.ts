@@ -4,8 +4,12 @@ import { Component } from '@angular/core';
   selector: 'book-root',
   templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'books';
+  title = 'books :-) :-)';
+
+  constructor() {
+    //
+  }
 }
