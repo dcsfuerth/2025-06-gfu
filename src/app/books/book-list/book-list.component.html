@@ -1,0 +1,26 @@
+<p>book-list works!</p>
+
+<p *ngIf="books?.length ===0">
+  Leider gibt es noch keine Bücher.
+  Bitte warten Sie, bis die Bücher geladen sind.
+</p>
+
+<p *ngIf="books && books.length > 0">
+  Hier sind die Bücher:
+
+<table>
+  <tr>
+    <td class="zelle">ISBN</td>
+    <td class="zelle">Titel</td>
+    <td class="zelle">Rating</td>
+    <td class="zelle">Preis</td>
+    <td class="zelle"></td>
+  </tr>
+  <tr *ngFor="let book of books; index as i;trackBy: trackByIsbn">
+    <td class="zelle">{{i+1}}: {{book.isbn}}</td>
+    <td class="zelle">{{book.title}}</td>
+    <td class="zelle">{{book.rating}}</td>
+    <td class="zelle">{{book.price}}</td>
+    <td class="zelle"></td>
+  </tr>
+</table>
