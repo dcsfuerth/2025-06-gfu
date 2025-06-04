@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { FormsModule } from '@angular/forms';
 import { CalculatorComponent } from './shared/calculator/calculator.component';
+import { BookFilterPipe } from './books/book-filter.pipe';
 
 @NgModule({
-  declarations: [AppComponent, BookListComponent, CalculatorComponent],
+  declarations: [AppComponent, BookListComponent, CalculatorComponent, BookFilterPipe],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   exports: [],
   providers: [],

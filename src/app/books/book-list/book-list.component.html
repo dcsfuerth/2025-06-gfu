@@ -26,7 +26,7 @@
     <td class="zelle">Preis</td>
     <td class="zelle">Cover</td>
   </tr>
-  @for (book of books; track book; let i = $index) {
+  @for (book of (books | bookFilter: filterValue); track book; let i = $index) {
   <tr style="height: 50px">
     <td class="zelle">{{i+1}}: {{book.isbn}}</td>
     <td class="zelle">{{book.title}}</td>
