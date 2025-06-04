@@ -1,5 +1,8 @@
 <div>
   <span>{{id}}</span>
   :
-  <span>{{stars}}</span>
+  <span>{{stars.toFixed(1)}}</span>
+
+  <button (click)="ratingPlus()">+</button>
+  <button (click)="ratingMinus()">-</button>
 </div>

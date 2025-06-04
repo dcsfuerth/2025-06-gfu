@@ -9,12 +9,19 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 export class RatingComponent implements OnChanges {
   //
   @Input()
-  stars: number = 0;
+  stars: number = 1;
 
   @Input()
   id: string = '';
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('ngOnChanges', changes);
+  }
+
+  ratingPlus() {
+    this.stars = Math.min(5, this.stars + 0.1);
+  }
+  ratingMinus() {
+    this.stars = Math.max(1, this.stars - 0.1);
   }
 }

@@ -31,6 +31,7 @@
     <td class="zelle">{{i+1}}: {{book.isbn}}</td>
     <td class="zelle">{{book.title}}</td>
     <td class="zelle">
+      {{book.rating}}
       <rating [id]="book.isbn" [stars]="book.rating"></rating>
     </td>
     <td class="zelle" [ngStyle]="{'background-color' : book.price < 10 ? 'green' : 'red' }">
