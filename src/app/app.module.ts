@@ -7,9 +7,10 @@ import { BookListComponent } from './books/book-list/book-list.component';
 import { FormsModule } from '@angular/forms';
 import { CalculatorComponent } from './shared/calculator/calculator.component';
 import { BookFilterPipe } from './books/book-filter.pipe';
+import { RatingComponent } from './shared/rating/rating.component';
 
 @NgModule({
-  declarations: [AppComponent, BookListComponent, CalculatorComponent, BookFilterPipe],
+  declarations: [AppComponent, BookListComponent, CalculatorComponent, BookFilterPipe, RatingComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   exports: [],
   providers: [],
