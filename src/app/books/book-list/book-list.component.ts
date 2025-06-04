@@ -20,9 +20,8 @@ export class BookListComponent implements OnInit, OnChanges, OnDestroy {
     console.log('BookListComponent constructor called');
   }
 
-  ngOnInit() {
-    console.log('BookListComponent ngOnInit called');
-    this.books = this.bookDataService.getBooks();
+  async ngOnInit() {
+    this.books = await this.bookDataService.getBooks();
   }
 
   ngOnChanges() {
@@ -55,5 +54,16 @@ export class BookListComponent implements OnInit, OnChanges, OnDestroy {
     if (book) {
       book.rating = Math.max(1, book.rating - 0.1);
     }
+  }
+
+  async deleteBook(isbn: string) {
+    console.log('Deleting book with ISBN:', isbn);
+    this.books = await this.bookDataService.deleteBook(isbn);
+    console.log('Book deleted, updated book list:', this.books);
+  }
+
+  async showBook(isbn: string) {
+    const book = await this.bookDataService.getBook(isbn);
+    alert(JSON.stringify(book, null, 2));
   }
 }

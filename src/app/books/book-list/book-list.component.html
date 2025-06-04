@@ -25,6 +25,7 @@
     <td class="zelle">Rating</td>
     <td class="zelle">Preis</td>
     <td class="zelle">Cover</td>
+    <td class="zelle">Aktion</td>
   </tr>
   @for (book of (books | bookFilter: filterValue); track book; let i = $index) {
   <tr style="height: 50px">
@@ -39,9 +40,11 @@
       {{book.price | currency:'EUR':'symbol':'1.2-2'}}
     </td>
     <td class="zelle"><img *ngIf="coverIsVisible" [src]="book.coverUrl" [style.width.px]="imageWidth"></td>
+    <td class="zelle">
+      <button (click)="deleteBook(book.isbn)">Löschen</button>
+      <button (click)="showBook(book.isbn)">Zeige</button>
+    </td>
   </tr>
   }
 </table>
 }
-
-{{books | json}}

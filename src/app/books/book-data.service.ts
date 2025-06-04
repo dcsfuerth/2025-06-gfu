@@ -1,38 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
+
+const BACKEND_URL = 'http://localhost:3000/books';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookDataService {
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
-  getBooks(): Book[] {
-    return [
-      {
-        isbn: '123456789',
-        title: 'Angular 19',
-        price: 30.99,
-        rating: 4,
-        coverUrl:
-          'https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/71rUdxFkaCL._AC_UY436_QL65_.jpg',
-      },
-      {
-        isbn: '123456790',
-        title: 'Angular 20',
-        price: 39.99,
-        rating: 4.5,
-        coverUrl:
-          'https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/61YTE17hNYL._AC_UY436_QL65_.jpg',
-      },
-      {
-        isbn: '123456791',
-        title: 'PHP',
-        price: 9.9,
-        rating: 3.5,
-        coverUrl:
-          'https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/71S1L2AntIL._AC_UY436_QL65_.jpg',
-      },
-    ];
+  async getBooks(): Promise<Book[]> {
+    const result = this.httpClient.get<Book[]>(BACKEND_URL);
+    return await firstValueFrom(result);
+  }
+
+  async getBook(isbn: string): Promise<Book> {
+    const result = this.httpClient.get<Book>(`${BACKEND_URL}/${isbn}`);
+    return await firstValueFrom(result);
+  }
+
+  async deleteBook(isbn: string): Promise<Book[]> {
+    await firstValueFrom(this.httpClient.delete<any>(`${BACKEND_URL}/${isbn}`));
+    return await this.getBooks();
   }
 }
