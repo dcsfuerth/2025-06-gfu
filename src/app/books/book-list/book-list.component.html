@@ -31,11 +31,13 @@
     <td class="zelle">{{i+1}}: {{book.isbn}}</td>
     <td class="zelle">{{book.title}}</td>
     <td class="zelle">
-      {{book.rating}}
-      <rating [id]="book.isbn" [stars]="book.rating"></rating>
+      <rating [id]="book.isbn" [stars]="book.rating" (notifyPlus)="ratingPlus($event)"
+        (notifyMinus)="ratingMinus($event)">
+      </rating>
     </td>
-    <td class="zelle" [ngStyle]="{'background-color' : book.price < 10 ? 'green' : 'red' }">
-      {{book.price | currency:'EUR':'symbol':'1.2-2'}}</td>
+    <td class=" zelle" [ngStyle]="{'background-color' : book.price < 10 ? 'green' : 'red' }">
+      {{book.price | currency:'EUR':'symbol':'1.2-2'}}
+    </td>
     <td class="zelle"><img *ngIf="coverIsVisible" [src]="book.coverUrl" [style.width.px]="imageWidth"></td>
   </tr>
   }

@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  TrackByFunction,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Book } from '../book';
 
 @Component({
@@ -69,5 +62,21 @@ export class BookListComponent implements OnInit, OnChanges, OnDestroy {
 
   toggleCover() {
     this.coverIsVisible = !this.coverIsVisible;
+  }
+
+  ratingPlus(isbn: string) {
+    console.log('Rating increased:', { isbn });
+    const book = this.books.find((book) => book.isbn === isbn);
+    if (book) {
+      book.rating = Math.min(5, book.rating + 0.1);
+    }
+  }
+
+  ratingMinus(isbn: string) {
+    console.log('Rating decreased:', { isbn });
+    const book = this.books.find((book) => book.isbn === isbn);
+    if (book) {
+      book.rating = Math.max(1, book.rating - 0.1);
+    }
   }
 }

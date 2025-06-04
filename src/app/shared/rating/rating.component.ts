@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'rating',
@@ -14,14 +21,22 @@ export class RatingComponent implements OnChanges {
   @Input()
   id: string = '';
 
+  @Output()
+  notifyPlus: EventEmitter<string> = new EventEmitter<string>();
+
+  @Output()
+  notifyMinus: EventEmitter<string> = new EventEmitter<string>();
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log('ngOnChanges', changes);
   }
 
   ratingPlus() {
-    this.stars = Math.min(5, this.stars + 0.1);
+    // this.stars = Math.min(5, this.stars + 0.1);
+    this.notifyPlus.emit(this.id);
   }
   ratingMinus() {
-    this.stars = Math.max(1, this.stars - 0.1);
+    // this.stars = Math.max(1, this.stars - 0.1);
+    this.notifyMinus.emit(this.id);
   }
 }
