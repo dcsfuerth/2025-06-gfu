@@ -37,6 +37,8 @@ export class BookListComponent {
     },
   ];
 
+  filterValue = '';
+
   trackByIsbn(book: any): string {
     return book.isbn;
   }

@@ -3,6 +3,10 @@
   <button (click)="toggleCover()">Cover {{coverIsVisible ? 'aus' : 'ein'}}blenden</button>
 </p>
 
+<p>
+  <input type="text" [(ngModel)]="filterValue" placeholder="Suche nach ..." />
+</p>
+
 @if (books.length ===0) {
 <p>
   Leider gibt es noch keine Bücher.
@@ -12,7 +16,7 @@
 
 @if (books.length > 0) {
 <p>
-  Hier sind die Bücher:
+  Hier sind die Bücher gefiltert nach "{{filterValue}}":
 </p>
 <table>
   <tr>
