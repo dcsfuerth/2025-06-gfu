@@ -30,7 +30,7 @@
   @for (book of (books | bookFilter: filterValue); track book; let i = $index) {
   <tr style="height: 50px">
     <td class="zelle">{{i+1}}: {{book.isbn}}</td>
-    <td class="zelle">{{book.title}}</td>
+    <td class="zelle"><a routerLink="/books/{{book.isbn}}">{{book.title}}</a> </td>
     <td class="zelle">
       <rating [id]="book.isbn" [stars]="book.rating" (notifyPlus)="ratingPlus($event)"
         (notifyMinus)="ratingMinus($event)">
