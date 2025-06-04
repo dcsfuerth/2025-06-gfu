@@ -32,7 +32,7 @@
     <td class="zelle">{{book.title}}</td>
     <td class="zelle">{{book.rating}}</td>
     <td class="zelle" [ngStyle]="{'background-color' : book.price < 10 ? 'green' : 'red' }">
-      {{book.price}}</td>
+      {{book.price | currency:'EUR':'symbol':'1.2-2'}}</td>
     <td class="zelle"><img *ngIf="coverIsVisible" [src]="book.coverUrl" [style.width.px]="imageWidth"></td>
   </tr>
   }

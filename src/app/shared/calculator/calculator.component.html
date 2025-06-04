@@ -1,7 +1,8 @@
 <p>
-  <input type="number" [(ngModel)]="x" placeholder="x" />
+  <input type="number" required minlength="3" [(ngModel)]="x" placeholder="x" />
 </p>
-<p> <input type="number" [(ngModel)]="y" placeholder="y" />
+<p>
+  <input type="number" required minlength="3" [(ngModel)]="y" placeholder="y" />
 </p>
 <p>
   <button (click)="add()">+</button>
