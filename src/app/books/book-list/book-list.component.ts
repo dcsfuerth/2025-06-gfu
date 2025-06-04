@@ -3,7 +3,7 @@ import { Book } from '../book';
 import { BookDataService } from '../book-data.service';
 
 @Component({
-  selector: 'book-list',
+  //  selector: 'book-list',
   standalone: false,
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css',
