@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  interval,
-  Observable,
-  of,
-  Subject,
-  Subscription,
-  takeUntil,
-  timer,
-} from 'rxjs';
+import { interval, Observable, of, Subject, takeUntil, timer } from 'rxjs';
 
 @Component({
   standalone: false,
