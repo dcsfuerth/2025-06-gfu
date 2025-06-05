@@ -1,3 +1,13 @@
 <p>welcome works!</p>
 
 {{obs1$ | async}}
+
+<p>
+  Zähler: {{count$ | async}}
+</p>
+
+<p>
+  <button (click)="increment()">Zähler erhöhen</button>
+  <button (click)="decrement()">Zähler verringern</button>
+  <button (click)="reset()">Zähler löschen</button>
+</p>

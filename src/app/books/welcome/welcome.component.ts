@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {
   interval,
   Observable,
+  of,
   Subject,
   Subscription,
   takeUntil,
@@ -14,51 +15,24 @@ import {
   styleUrl: './welcome.component.css',
 })
 export class WelcomeComponent {
-  //  public mySubscriptions$: Subscription[] = [];
   public destroy$ = new Subject();
 
   public obs1$: Observable<number> = timer(0, 500);
+  count$: Observable<number> = of(0);
 
-  constructor() {
-    //
-    // const obs2$ = obs1$.pipe(filter((value) => value > 10));
-    // const obs3$ = obs2$.pipe(map((value) => value * 2));
-    // obs3$.subscribe({
-    //   next: (value) => console.log('Next:', value),
-    //   error: (error) => console.error('Error:', error),
-    //   complete: () => console.log('Completed'),
-    // });
-    // const mySubject$ = new Subject<string>();
-    // mySubject$.next('Hallo');
-    // mySubject$.subscribe((value) =>
-    //   console.log('Nachricht aus dem Subject 1:', value)
-    // );
-    // mySubject$.next('Welt');
-    // mySubject$.subscribe((value) =>
-    //   console.log('Nachricht aus dem Subject 2:', value)
-    // );
-    // mySubject$.next('Ende der Welt');
-    // mySubject$.complete();
-  }
+  constructor() {}
 
   ngOnInit() {
-    // this.mySubscriptions$.push(
-    //   interval(1000).subscribe((daten) => {
-    //     console.log('Daten:', daten);
-    //   })
-    // );
-
     interval(1000)
       .pipe(takeUntil(this.destroy$))
       .subscribe((x) => console.log(x));
   }
 
   ngOnDestroy() {
-    // this.mySubscriptions$.forEach((subscription) => {
-    //   if (subscription) {
-    //     subscription.unsubscribe();
-    //   }
-    // });
     this.destroy$.next('bumm.');
   }
+
+  increment() {}
+  decrement() {}
+  reset() {}
 }
