@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { interval, Subject, Subscription, takeUntil } from 'rxjs';
+import {
+  interval,
+  Observable,
+  Subject,
+  Subscription,
+  takeUntil,
+  timer,
+} from 'rxjs';
 
 @Component({
   standalone: false,
@@ -10,9 +17,10 @@ export class WelcomeComponent {
   //  public mySubscriptions$: Subscription[] = [];
   public destroy$ = new Subject();
 
+  public obs1$: Observable<number> = timer(0, 500);
+
   constructor() {
     //
-    // const obs1$ = timer(0, 500);
     // const obs2$ = obs1$.pipe(filter((value) => value > 10));
     // const obs3$ = obs2$.pipe(map((value) => value * 2));
     // obs3$.subscribe({

@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './books/welcome/welcome.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter/counter.reducers';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,13 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
     BookDetailComponent,
     NotFoundComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    StoreModule.forRoot({ count: counterReducer }),
+  ],
   exports: [],
   providers: [],
   bootstrap: [AppComponent],
