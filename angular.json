@@ -43,6 +43,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/meineApp",
               "budgets": [
                 {
                   "type": "initial",

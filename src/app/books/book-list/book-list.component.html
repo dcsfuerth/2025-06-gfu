@@ -31,8 +31,7 @@
   <tr style="height: 50px">
     <td class="zelle">{{i+1}}: {{book.isbn}}</td>
     <td class="zelle">
-      <a routerLink="/books/{{book.isbn}}">{{book.title}}
-
+      <a [routerLink]="['/books', book.isbn]">{{book.title}}
       </a>
     </td>
     <td class="zelle">

@@ -11,6 +11,7 @@ import { RatingComponent } from './shared/rating/rating.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './books/welcome/welcome.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BookDetailComponent } from './books/book-detail/book-detail.component';
     RatingComponent,
     WelcomeComponent,
     BookDetailComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   exports: [],

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { WelcomeComponent } from './books/welcome/welcome.component';
-import { BookDetailComponent } from './books/book-detail/book-detail.component';
-import { AppComponent } from './app.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/books', pathMatch: 'full' },
@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'books', component: BookListComponent },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'books/:isbn', component: BookDetailComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
