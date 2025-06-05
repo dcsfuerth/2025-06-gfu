@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/counter.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { counterReducer } from './counter/counter.reducers';
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot({ count: counterReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   exports: [],
   providers: [],
