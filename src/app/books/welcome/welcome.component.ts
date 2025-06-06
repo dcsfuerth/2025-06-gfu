@@ -10,9 +10,6 @@ import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './welcome.component.css',
 })
 export class WelcomeComponent {
-  saveForm() {
-    throw new Error('Method not implemented.');
-  }
   public destroy$ = new Subject();
 
   public obs1$: Observable<number> = timer(0, 500);
@@ -48,5 +45,9 @@ export class WelcomeComponent {
   }
   reset() {
     this.store.dispatch(reset());
+  }
+
+  saveForm() {
+    alert(JSON.stringify(this.formGroup.value));
   }
 }

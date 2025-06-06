@@ -34,6 +34,6 @@
     {{formGroup.errors | json}}
   </p>
   <p>
-    <input type="submit" value="Absenden" />
+    <input type="submit" [disabled]="!formGroup.valid" value="Absenden" />
   </p>
 </form>
