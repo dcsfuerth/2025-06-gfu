@@ -17,12 +17,16 @@
 
 <form (ngSubmit)="saveForm()" [formGroup]="formGroup">
   <p>
-    <label for="email">Name:</label>
+    <label for="email">E-Mail:</label>
     <input id="email" formControlName="email" />
+    <span *ngIf="formGroup.get('email')?.hasError('required')">E-Mail ist erforderlich</span>
+    <span *ngIf="formGroup.get('email')?.hasError('email')">ungültige E-Mail</span>
   </p>
   <p>
     <label for="password">Kennwort:</label>
     <input id="password" formControlName="password" />
+    <span *ngIf="formGroup.get('password')?.hasError('required')">Kennwort ist erforderlich</span>
+    <span *ngIf="formGroup.get('password')?.hasError('minlength')">Kennwort muss mindestens 6 Zeichen lang sein</span>
   </p>
   <p>
     {{formGroup.value | json}}

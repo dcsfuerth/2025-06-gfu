@@ -1,0 +1,32 @@
+<p>Neues Buch:</p>
+
+<form (ngSubmit)="saveBook()" [formGroup]="bookForm">
+  <p>
+    <label for="isbn">ISBN:</label>
+    <input id="isbn" formControlName="isbn" />
+  </p>
+
+  <p>
+    <label for="title">Titel:</label>
+    <input id="title" formControlName="title" />
+  </p>
+
+  <p>
+    <label for="coverUrl">coverUrl:</label>
+    <input id="coverUrl" formControlName="coverUrl" />
+  </p>
+
+  <p>
+    <label for="price">Preis:</label>
+    <input id="price" type='number' formControlName="price" />
+  </p>
+
+  <p>
+    <label for="rating">Rating (1-5):</label>
+    <input id="rating" type='number' formControlName="rating" />
+  </p>
+
+  <p>
+    <input type="submit" [disabled]="!bookForm.valid" value="Buch speichern" />
+  </p>
+</form>

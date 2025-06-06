@@ -5,10 +5,12 @@ import { BookListComponent } from './books/book-list/book-list.component';
 import { WelcomeComponent } from './books/welcome/welcome.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { bookDetailGuard } from './books/book-detail.guard';
+import { NewBookComponent } from './books/new-book/new-book.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/books', pathMatch: 'full' },
   { path: 'books', component: BookListComponent },
+  { path: 'books/new', component: NewBookComponent },
   { path: 'welcome', component: WelcomeComponent },
   {
     path: 'books/:isbn',
