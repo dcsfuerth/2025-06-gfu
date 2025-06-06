@@ -15,14 +15,6 @@ export class WelcomeComponent {
   public obs1$: Observable<number> = timer(0, 500);
   count$: Observable<number> = of(0);
 
-  public formGroup: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-    ]),
-  });
-
   constructor(private store: Store<{ count: number }>) {
     this.count$ = store.select((state) => state.count);
   }
@@ -45,9 +37,5 @@ export class WelcomeComponent {
   }
   reset() {
     this.store.dispatch(reset());
-  }
-
-  saveForm() {
-    alert(JSON.stringify(this.formGroup.value));
   }
 }

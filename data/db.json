@@ -20,6 +20,13 @@
       "price": 9.9,
       "rating": 3.5,
       "coverUrl": "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/71S1L2AntIL._AC_UY436_QL65_.jpg"
+    },
+    {
+      "isbn": "1111",
+      "title": "Python",
+      "coverUrl": "",
+      "price": 22,
+      "rating": 3
     }
   ]
 }

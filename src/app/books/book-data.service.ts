@@ -25,4 +25,9 @@ export class BookDataService {
     await firstValueFrom(this.httpClient.delete<any>(`${BACKEND_URL}/${isbn}`));
     return await this.getBooks();
   }
+
+  async saveBook(book: Book): Promise<Book[]> {
+    await firstValueFrom(this.httpClient.post<Book>(BACKEND_URL, book));
+    return await this.getBooks();
+  }
 }

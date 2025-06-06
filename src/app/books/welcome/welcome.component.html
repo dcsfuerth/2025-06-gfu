@@ -1,43 +1,13 @@
 <p>welcome works!</p>
 
-{{obs1$ | async}}
+<!-- {{obs1$ | async}} -->
 
-<!-- <p>
+<p>
   Zähler: {{count$ | async}}
 </p>
--->
 
 <p>
   <button (click)="increment()">Zähler erhöhen</button>
   <button (click)="decrement()">Zähler verringern</button>
   <button (click)="reset()">Zähler löschen</button>
 </p>
-
-<hr />
-
-<form (ngSubmit)="saveForm()" [formGroup]="formGroup">
-  <p>
-    <label for="email">E-Mail:</label>
-    <input id="email" formControlName="email" />
-    <span *ngIf="formGroup.get('email')?.hasError('required')">E-Mail ist erforderlich</span>
-    <span *ngIf="formGroup.get('email')?.hasError('email')">ungültige E-Mail</span>
-  </p>
-  <p>
-    <label for="password">Kennwort:</label>
-    <input id="password" formControlName="password" />
-    <span *ngIf="formGroup.get('password')?.hasError('required')">Kennwort ist erforderlich</span>
-    <span *ngIf="formGroup.get('password')?.hasError('minlength')">Kennwort muss mindestens 6 Zeichen lang sein</span>
-  </p>
-  <p>
-    {{formGroup.value | json}}
-  </p>
-  <p>
-    {{formGroup.valid }}
-  </p>
-  <p>
-    {{formGroup.errors | json}}
-  </p>
-  <p>
-    <input type="submit" [disabled]="!formGroup.valid" value="Absenden" />
-  </p>
-</form>
