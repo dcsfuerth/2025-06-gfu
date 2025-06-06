@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "db": "json-server -w -d 300 -i isbn ./data/db.json"
+    "db": "json-server -w -d 300 -i isbn ./data/db.json",
+    "docs": "compodoc -p tsconfig.doc.json --language de-DE -s "
   },
   "private": true,
   "dependencies": {

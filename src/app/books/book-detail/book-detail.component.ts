@@ -17,6 +17,13 @@ export class BookDetailComponent implements OnInit {
     private bookDataService: BookDataService
   ) {}
 
+  /**
+   * Initializes the component by fetching the book details based on the ISBN
+   * from the route parameters.
+   * @returns {Promise<void>} A promise that resolves when the book details are fetched.
+   * @memberof BookDetailComponent
+   * @param {void}
+   */
   public async ngOnInit(): Promise<void> {
     this.isbn = this.route.snapshot.params['isbn'];
     this.book = await this.bookDataService.getBook(this.isbn);

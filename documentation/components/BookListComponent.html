@@ -1,0 +1,1179 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>books documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">books documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Eingeben zur Suche"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Komponenten</li>
+  <li class="breadcrumb-item"
+  >
+  BookListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Datei</h3>
+</p>
+<p class="comment">
+    <code>src/app/books/book-list/book-list.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implementiert</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnChanges</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./book-list.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./book-list.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Eigenschaften</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#books" >books</a>
+                            </li>
+                            <li>
+                                <a href="#coverIsVisible" >coverIsVisible</a>
+                            </li>
+                            <li>
+                                <a href="#filterValue" >filterValue</a>
+                            </li>
+                            <li>
+                                <a href="#imageWidth" >imageWidth</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methoden</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteBook" >deleteBook</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#ratingMinus" >ratingMinus</a>
+                            </li>
+                            <li>
+                                <a href="#ratingPlus" >ratingPlus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#showBook" >showBook</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCover" >toggleCover</a>
+                            </li>
+                            <li>
+                                <a href="#trackByIsbn" >trackByIsbn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Konstruktor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(bookDataService: <a href="../injectables/BookDataService.html" target="_self">BookDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definiert in <a href="" data-line="17" class="link-to-prism">src/app/books/book-list/book-list.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameter :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Typ</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>bookDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BookDataService.html" target="_self" >BookDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Nein
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methoden
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteBook"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>deleteBook</b></span>
+                        <a href="#deleteBook"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteBook(isbn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameter :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Typ</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isbn</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Nein
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="23"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ratingMinus"></a>
+                    <span class="name">
+                        <span ><b>ratingMinus</b></span>
+                        <a href="#ratingMinus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ratingMinus(isbn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameter :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Typ</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isbn</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Nein
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ratingPlus"></a>
+                    <span class="name">
+                        <span ><b>ratingPlus</b></span>
+                        <a href="#ratingPlus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ratingPlus(isbn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameter :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Typ</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isbn</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Nein
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBook"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>showBook</b></span>
+                        <a href="#showBook"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showBook(isbn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameter :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Typ</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isbn</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Nein
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCover"></a>
+                    <span class="name">
+                        <span ><b>toggleCover</b></span>
+                        <a href="#toggleCover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCover()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByIsbn"></a>
+                    <span class="name">
+                        <span ><b>trackByIsbn</b></span>
+                        <a href="#trackByIsbn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByIsbn(book: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/books/book-list/book-list.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameter :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Typ</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>book</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Nein
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Eigenschaften
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="books"></a>
+                    <span class="name">
+                        <span ><b>books</b></span>
+                        <a href="#books"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Typ : </i>        <code><a href="../interfaces/Book.html" target="_self" >Book[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Standardwert : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definiert in <a href="" data-line="15" class="link-to-prism">src/app/books/book-list/book-list.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coverIsVisible"></a>
+                    <span class="name">
+                        <span ><b>coverIsVisible</b></span>
+                        <a href="#coverIsVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Standardwert : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definiert in <a href="" data-line="13" class="link-to-prism">src/app/books/book-list/book-list.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterValue"></a>
+                    <span class="name">
+                        <span ><b>filterValue</b></span>
+                        <a href="#filterValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Typ : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Standardwert : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definiert in <a href="" data-line="17" class="link-to-prism">src/app/books/book-list/book-list.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imageWidth"></a>
+                    <span class="name">
+                        <span ><b>imageWidth</b></span>
+                        <a href="#imageWidth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Typ : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Standardwert : </i><code>50</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definiert in <a href="" data-line="12" class="link-to-prism">src/app/books/book-list/book-list.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnChanges, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { Book } from &#x27;../book&#x27;;
+import { BookDataService } from &#x27;../book-data.service&#x27;;
+
+@Component({
+  //  selector: &#x27;book-list&#x27;,
+  standalone: false,
+  templateUrl: &#x27;./book-list.component.html&#x27;,
+  styleUrl: &#x27;./book-list.component.css&#x27;,
+})
+export class BookListComponent implements OnInit, OnChanges, OnDestroy {
+  imageWidth &#x3D; 50;
+  coverIsVisible &#x3D; true;
+
+  books: Book[] &#x3D; [];
+
+  filterValue &#x3D; &#x27;&#x27;;
+
+  constructor(private bookDataService: BookDataService) {
+    console.log(&#x27;BookListComponent constructor called&#x27;);
+  }
+
+  async ngOnInit() {
+    this.books &#x3D; await this.bookDataService.getBooks();
+  }
+
+  ngOnChanges() {
+    console.log(&#x27;BookListComponent ngOnChanges called&#x27;);
+  }
+
+  ngOnDestroy() {
+    console.log(&#x27;BookListComponent ngOnDestroy called&#x27;);
+  }
+
+  trackByIsbn(book: any): string {
+    return book.isbn;
+  }
+
+  toggleCover() {
+    this.coverIsVisible &#x3D; !this.coverIsVisible;
+  }
+
+  ratingPlus(isbn: string) {
+    console.log(&#x27;Rating increased:&#x27;, { isbn });
+    const book &#x3D; this.books.find((book) &#x3D;&gt; book.isbn &#x3D;&#x3D;&#x3D; isbn);
+    if (book) {
+      book.rating &#x3D; Math.min(5, book.rating + 0.1);
+    }
+  }
+
+  ratingMinus(isbn: string) {
+    console.log(&#x27;Rating decreased:&#x27;, { isbn });
+    const book &#x3D; this.books.find((book) &#x3D;&gt; book.isbn &#x3D;&#x3D;&#x3D; isbn);
+    if (book) {
+      book.rating &#x3D; Math.max(1, book.rating - 0.1);
+    }
+  }
+
+  async deleteBook(isbn: string) {
+    console.log(&#x27;Deleting book with ISBN:&#x27;, isbn);
+    this.books &#x3D; await this.bookDataService.deleteBook(isbn);
+    console.log(&#x27;Book deleted, updated book list:&#x27;, this.books);
+  }
+
+  async showBook(isbn: string) {
+    const book &#x3D; await this.bookDataService.getBook(isbn);
+    alert(JSON.stringify(book, null, 2));
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p&gt;book-list works!&lt;/p&gt;
+&lt;p&gt;
+  &lt;button (click)&#x3D;&quot;toggleCover()&quot;&gt;Cover {{coverIsVisible ? &#x27;aus&#x27; : &#x27;ein&#x27;}}blenden&lt;/button&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;filterValue&quot; placeholder&#x3D;&quot;Suche nach ...&quot; /&gt;
+&lt;/p&gt;
+
+@if (books.length &#x3D;&#x3D;&#x3D;0) {
+&lt;p&gt;
+  Leider gibt es noch keine Bücher.
+  Bitte warten Sie, bis die Bücher geladen sind.
+&lt;/p&gt;
+}
+
+@if (books.length &gt; 0) {
+&lt;p&gt;
+  Hier sind die Bücher gefiltert nach &quot;{{filterValue}}&quot;:
+&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;ISBN&lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;Titel&lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;Rating&lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;Preis&lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;Cover&lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;Aktion&lt;/td&gt;
+  &lt;/tr&gt;
+  @for (book of (books | bookFilter: filterValue); track book; let i &#x3D; $index) {
+  &lt;tr style&#x3D;&quot;height: 50px&quot;&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;{{i+1}}: {{book.isbn}}&lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;
+      &lt;a [routerLink]&#x3D;&quot;[&#x27;/books&#x27;, book.isbn]&quot;&gt;{{book.title}}
+      &lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;
+      &lt;rating [id]&#x3D;&quot;book.isbn&quot; [stars]&#x3D;&quot;book.rating&quot; (notifyPlus)&#x3D;&quot;ratingPlus($event)&quot;
+        (notifyMinus)&#x3D;&quot;ratingMinus($event)&quot;&gt;
+      &lt;/rating&gt;
+    &lt;/td&gt;
+    &lt;td class&#x3D;&quot; zelle&quot; [ngStyle]&#x3D;&quot;{&#x27;background-color&#x27; : book.price &lt; 10 ? &#x27;green&#x27; : &#x27;red&#x27; }&quot;&gt;
+      {{book.price | currency:&#x27;EUR&#x27;:&#x27;symbol&#x27;:&#x27;1.2-2&#x27;}}
+    &lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;&lt;img *ngIf&#x3D;&quot;coverIsVisible&quot; [src]&#x3D;&quot;book.coverUrl&quot; [style.width.px]&#x3D;&quot;imageWidth&quot;&gt;&lt;/td&gt;
+    &lt;td class&#x3D;&quot;zelle&quot;&gt;
+      &lt;button (click)&#x3D;&quot;deleteBook(book.isbn)&quot;&gt;Löschen&lt;/button&gt;
+      &lt;button (click)&#x3D;&quot;showBook(book.isbn)&quot;&gt;Zeige&lt;/button&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  }
+&lt;/table&gt;
+}</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html Element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Komponente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html-Element mit Direktive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p>book-list works!</p><p>  <button (click)="toggleCover()">Cover {{coverIsVisible ? \'aus\' : \'ein\'}}blenden</button></p><p>  <input type="text" [(ngModel)]="filterValue" placeholder="Suche nach ..." /></p>@if (books.length ===0) {<p>  Leider gibt es noch keine Bücher.  Bitte warten Sie, bis die Bücher geladen sind.</p>}@if (books.length > 0) {<p>  Hier sind die Bücher gefiltert nach "{{filterValue}}":</p><table>  <tr>    <td class="zelle">ISBN</td>    <td class="zelle">Titel</td>    <td class="zelle">Rating</td>    <td class="zelle">Preis</td>    <td class="zelle">Cover</td>    <td class="zelle">Aktion</td>  </tr>  @for (book of (books | bookFilter: filterValue); track book; let i = $index) {  <tr style="height: 50px">    <td class="zelle">{{i+1}}: {{book.isbn}}</td>    <td class="zelle">      <a [routerLink]="[\'/books\', book.isbn]">{{book.title}}      </a>    </td>    <td class="zelle">      <rating [id]="book.isbn" [stars]="book.rating" (notifyPlus)="ratingPlus($event)"        (notifyMinus)="ratingMinus($event)">      </rating>    </td>    <td class=" zelle" [ngStyle]="{\'background-color\' : book.price < 10 ? \'green\' : \'red\' }">      {{book.price | currency:\'EUR\':\'symbol\':\'1.2-2\'}}    </td>    <td class="zelle"><img *ngIf="coverIsVisible" [src]="book.coverUrl" [style.width.px]="imageWidth"></td>    <td class="zelle">      <button (click)="deleteBook(book.isbn)">Löschen</button>      <button (click)="showBook(book.isbn)">Zeige</button>    </td>  </tr>  }</table>}</div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'book-admin'},{'name': 'AppComponent', 'selector': 'book-root'},{'name': 'BookDetailComponent', 'selector': ''},{'name': 'BookListComponent', 'selector': ''},{'name': 'CalculatorComponent', 'selector': 'calculator'},{'name': 'NotFoundComponent', 'selector': ''},{'name': 'RatingComponent', 'selector': 'rating'},{'name': 'WelcomeComponent', 'selector': ''}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BookListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> übereinstimmende Ergebnisse "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Kein passendes Ergebnis "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BookListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
