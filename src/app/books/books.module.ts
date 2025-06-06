@@ -8,6 +8,7 @@ import { BookFilterPipe } from './book-filter.pipe';
 import { BookListComponent } from './book-list/book-list.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,13 @@ import { SharedModule } from '../shared/shared.module';
     WelcomeComponent,
     BookDetailComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, SharedModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    SharedModule,
+    RouterModule,
+  ],
   exports: [
     BookListComponent,
     BookFilterPipe,
