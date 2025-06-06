@@ -8,13 +8,17 @@ import { bookDetailGuard } from './books/book-detail.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/books', pathMatch: 'full' },
-  // { path: '', component: AppComponent, pathMatch: 'full' },
   { path: 'books', component: BookListComponent },
   { path: 'welcome', component: WelcomeComponent },
   {
     path: 'books/:isbn',
     component: BookDetailComponent,
     canActivate: [bookDetailGuard],
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
   },
   { path: '**', component: NotFoundComponent },
 ];
