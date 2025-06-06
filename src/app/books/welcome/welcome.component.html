@@ -2,12 +2,38 @@
 
 {{obs1$ | async}}
 
-<p>
+<!-- <p>
   Zähler: {{count$ | async}}
 </p>
+-->
 
 <p>
   <button (click)="increment()">Zähler erhöhen</button>
   <button (click)="decrement()">Zähler verringern</button>
   <button (click)="reset()">Zähler löschen</button>
 </p>
+
+<hr />
+
+<form (ngSubmit)="saveForm()" [formGroup]="formGroup">
+  <p>
+    <label for="email">Name:</label>
+    <input id="email" formControlName="email" />
+  </p>
+  <p>
+    <label for="password">Kennwort:</label>
+    <input id="password" formControlName="password" />
+  </p>
+  <p>
+    {{formGroup.value | json}}
+  </p>
+  <p>
+    {{formGroup.valid }}
+  </p>
+  <p>
+    {{formGroup.errors | json}}
+  </p>
+  <p>
+    <input type="submit" value="Absenden" />
+  </p>
+</form>

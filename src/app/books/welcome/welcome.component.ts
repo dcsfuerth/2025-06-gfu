@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { interval, Observable, of, Subject, takeUntil, timer } from 'rxjs';
 import { decrement, increment, reset } from '../../counter/counter.actions';
+import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   standalone: false,
@@ -9,10 +10,21 @@ import { decrement, increment, reset } from '../../counter/counter.actions';
   styleUrl: './welcome.component.css',
 })
 export class WelcomeComponent {
+  saveForm() {
+    throw new Error('Method not implemented.');
+  }
   public destroy$ = new Subject();
 
   public obs1$: Observable<number> = timer(0, 500);
   count$: Observable<number> = of(0);
+
+  public formGroup: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+  });
 
   constructor(private store: Store<{ count: number }>) {
     this.count$ = store.select((state) => state.count);
